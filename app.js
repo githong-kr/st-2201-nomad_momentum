@@ -1,19 +1,19 @@
 const calculator = {
   add: (firstNumber, secondNumber) => {
-    console.log(firstNumber + secondNumber);
+    return firstNumber + secondNumber;
   },
   minus: (firstNumber, secondNumber) => {
-    console.log(firstNumber - secondNumber);
+    return firstNumber - secondNumber;
   },
   divide: (firstNumber, secondNumber) => {
-    console.log(firstNumber / secondNumber);
+    return firstNumber / secondNumber;
   },
   powerOf: (firstNumber, secondNumber) => {
-    console.log(firstNumber ** secondNumber);
+    return firstNumber ** secondNumber;
   },
 };
 
-calculator.add(2, 3);
-calculator.minus(2, 3);
-calculator.divide(2, 3);
-calculator.powerOf(2, 3);
+console.log(calculator.add(2, 3));
+console.log(calculator.minus(2, 3));
+console.log(calculator.divide(2, 3));
+console.log(calculator.powerOf(2, 3));
