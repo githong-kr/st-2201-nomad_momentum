@@ -1,10 +1,12 @@
 const loginForm = document.querySelector('#login-form');
 const loginInput = document.querySelector('#login-form input');
-const greeting = document.querySelector('#greeting');
+const greeting = document.querySelector('#logined-form');
 const HIDDEN_CLASSNAME = 'hidden';
+const LOGINNED_CLASSNAME = 'loginned';
 const USERNAME_KEY = 'userName';
 const LOGIN_AREA = 'login-form';
 const GREETING_AREA = 'greeting';
+const GREETING_MESSAGE = 'How are you?,';
 
 let userName = localStorage.getItem(USERNAME_KEY);
 
@@ -13,8 +15,11 @@ const toggleElement = (elementName) => {
     loginForm.classList.toggle(HIDDEN_CLASSNAME);
   } else if (elementName === GREETING_AREA) {
     // set greeting message
-    greeting.innerText = `Hello ${userName}`;
+    greeting.querySelector(
+      '#greeting'
+    ).innerText = `${GREETING_MESSAGE} ${userName}`;
     greeting.classList.toggle(HIDDEN_CLASSNAME);
+    greeting.classList.toggle(LOGINNED_CLASSNAME);
   }
 };
 
@@ -33,11 +38,13 @@ const onLoginSubmit = (event) => {
 if (userName === null) {
   // register submit event listener
   loginForm.addEventListener('submit', onLoginSubmit);
-  // show login-form
+
   toggleElement(LOGIN_AREA);
 } else {
   // set greeting message
-  greeting.innerText = `Hello ${userName}`;
+  greeting.querySelector(
+    '#greeting'
+  ).innerText = `${GREETING_MESSAGE}${userName}`;
   // show greeting
   toggleElement(GREETING_AREA);
 }
